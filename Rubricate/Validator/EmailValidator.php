@@ -12,7 +12,7 @@
 namespace Rubricate\Validator;
 
 
-class EmailValidator implements IIsValidValidator 
+class EmailValidator implements IIsValidValidator
 {
 
     private $_val;
@@ -27,7 +27,7 @@ class EmailValidator implements IIsValidValidator
     {
         $this->_val->setField($field);
 
-         return (filter_var($this->_val->getField(), FILTER_VALIDATE_EMAIL)== TRUE);
+         return (filter_var($this->_val->getField(), FILTER_VALIDATE_EMAIL)== true);
 
 
     } 

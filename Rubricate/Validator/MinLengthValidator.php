@@ -12,7 +12,7 @@
 namespace Rubricate\Validator;
 
 
-class MinLengthValidator implements IIsValidValidator 
+class MinLengthValidator implements IIsValidValidator
 {
 
     private $_val;

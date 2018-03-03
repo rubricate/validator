@@ -12,7 +12,7 @@
 namespace Rubricate\Validator;
 
 
-class MimeTypeValidator implements IIsValidValidator 
+class MimeTypeValidator implements IIsValidValidator
 {
 
     private $_val;

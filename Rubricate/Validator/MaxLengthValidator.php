@@ -12,7 +12,7 @@
 namespace Rubricate\Validator;
 
 
-class MaxLengthValidator implements IIsValidValidator 
+class MaxLengthValidator implements IIsValidValidator
 {
 
     private $_val;

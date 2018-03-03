@@ -12,7 +12,7 @@
 namespace Rubricate\Validator;
 
 
-class HourValidator implements IIsValidValidator 
+class HourValidator implements IIsValidValidator
 {
 
     private $_val;
@@ -28,7 +28,8 @@ class HourValidator implements IIsValidValidator
 
         $this->_val->setField($field);
  
-       return (preg_match(''
+        return (preg_match(
+            ''
             . '/^(2[0-3]|[01][0-9]):'
             . '[0-5][0-9]:'
             . '[0-5][0-9]'

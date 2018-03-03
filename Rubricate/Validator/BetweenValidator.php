@@ -12,7 +12,7 @@
 namespace Rubricate\Validator;
 
 
-class BetweenValidator implements IIsValidValidator 
+class BetweenValidator implements IIsValidValidator
 {
 
     private $_val;
@@ -35,14 +35,12 @@ class BetweenValidator implements IIsValidValidator
         $exception = 'class %s: the key "%s" not found.';
 
 
-        if(!array_key_exists('min', $rule))
-        {
+        if(!array_key_exists('min', $rule)) {
             throw new \Exception(sprintf($exception, __CLASS__, 'min'));
         }
 
 
-        if(!array_key_exists('max', $rule))
-        {
+        if(!array_key_exists('max', $rule)) {
             throw new \Exception(sprintf($exception, __CLASS__, 'max'));
         }
 

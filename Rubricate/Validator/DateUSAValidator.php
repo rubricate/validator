@@ -12,7 +12,7 @@
 namespace Rubricate\Validator;
 
 
-class DateUSAValidator implements IIsValidValidator 
+class DateUSAValidator implements IIsValidValidator
 {
     private $_val;
 
@@ -29,15 +29,18 @@ class DateUSAValidator implements IIsValidValidator
  
         $isDateValid = 0;
 
-        if(preg_match(''
+        if(preg_match(
+            ''
             . '/^[0-9]{4}-'
             . '([1-9]|0[1-9]|1[0-2])-'
             . '([1-9]|0[1-9]|[1-2][0-9]|3[0-1])'
             . '$/'
-            . '', $this->_val->getField())){
+            . '', $this->_val->getField()
+        )
+        ) {
 
             list($y, $m, $d) = explode('-', $this->_val->getField());
-            $isDateValid = checkdate($m,$d,$y);
+            $isDateValid = checkdate($m, $d, $y);
 
         }
 

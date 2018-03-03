@@ -12,7 +12,7 @@
 namespace Rubricate\Validator;
 
 
-class UrlValidator implements IIsValidValidator 
+class UrlValidator implements IIsValidValidator
 {
     private $_val;
 
@@ -26,7 +26,7 @@ class UrlValidator implements IIsValidValidator
     {
         $this->_val->setField($field);
 
-       return (filter_var($this->_val->getField(), FILTER_VALIDATE_URL) == TRUE);
+        return (filter_var($this->_val->getField(), FILTER_VALIDATE_URL) == true);
     } 
 
 

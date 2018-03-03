@@ -12,7 +12,7 @@
 namespace Rubricate\Validator;
 
 
-class IpValidator implements IIsValidValidator 
+class IpValidator implements IIsValidValidator
 {
 
     private $_val;
@@ -26,7 +26,7 @@ class IpValidator implements IIsValidValidator
     public function isValid($field)
     {
         $this->_val->setField($field);
-        return (filter_var($this->_val->getField(), FILTER_VALIDATE_IP) == TRUE);
+        return (filter_var($this->_val->getField(), FILTER_VALIDATE_IP) == true);
 
     } 
 

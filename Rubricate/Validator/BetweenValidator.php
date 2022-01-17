@@ -1,69 +1,43 @@
 <?php
 
-/*
- * @package     RubricatePHP
- * @author      Estefanio NS <estefanions AT gmail DOT com>
- * @link        https://github.com/rubricate/validator
- * @copyright   2017 
- * 
- */
- 
-
 namespace Rubricate\Validator;
-
 
 class BetweenValidator implements IIsValidValidator
 {
-
-    private $_val;
+    private $v;
 
     public function __construct($keyMinAndMaxArr)
     {
-
-        $this->_val = new VoValidator();
-        $this->_val->setRule($keyMinAndMaxArr);
-
-        return $this;
+        $this->v = new VoValidator();
+        $this->v->setRule($keyMinAndMaxArr);
     }
 
-
-    public function isValid($field)
+    public function isValid($field): bool
     {
-        $this->_val->setField($field);
+        $this->v->setField($field);
+        $rule = $this->v->getRule();
+        self::exception($rule);
 
-        $rule = $this->_val->getRule();
-        $exception = 'class %s: the key "%s" not found.';
+        $num = self::getSize();
 
-
-        if(!array_key_exists('min', $rule)) {
-            throw new \Exception(sprintf($exception, __CLASS__, 'min'));
-        }
-
-
-        if(!array_key_exists('max', $rule)) {
-            throw new \Exception(sprintf($exception, __CLASS__, 'max'));
-        }
-
-
-        $num = self::_getSize();
-
-
-        return ( ($num >= $rule['min'])  && ($num <= $rule['max'])) ;
-
+        return ( ($num >= $rule['min'])  && ($num <= $rule['max']) );
     } 
 
-
-    private function _getSize()
+    private function getSize()
     {
-        $val = $this->_val->getField();
-
-        return (is_numeric($val)) ?  $val : mb_strlen($val, 'UTF-8');
+        $v = $this->v->getField();
+        return (is_numeric($v)) ?  $v : mb_strlen($v, 'UTF-8');
     } 
 
+    private function exception($rule)
+    {
+        $e = 'class %s: the key "%s" not found.';
 
-
-
+        foreach (['max', 'min'] as $m) {
+            if(!array_key_exists($m, $rule)) {
+                throw new \Exception(sprintf($e, __CLASS__, $m));
+            }
+        }
+    } 
 }
-
-
 

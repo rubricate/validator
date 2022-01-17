@@ -1,49 +1,31 @@
 <?php
 
-/*
- * @package     RubricatePHP
- * @author      Estefanio NS <estefanions AT gmail DOT com>
- * @link        https://github.com/rubricate/validator
- * @copyright   2017 
- * 
- */
- 
-
 namespace Rubricate\Validator;
-
 
 class VoValidator
 {
-    private $_field;
-    private $_rule;
-
+    private $field, $rule;
 
     public function getField()
     {
-        return $this->_field;
+        return $this->field;
     }
 
     public function setField($field)
     {
-        $this->_field = $field;
+        $this->field = $field;
         return $this;
     }
 
-
-
-
     public function getRule()
     {
-        return $this->_rule;
+        return $this->rule;
     }
 
     public function setRule($rule)
     {
-        $this->_rule = $rule;
+        $this->rule = $rule;
         return $this;
     }
-
-
-
 }    
 

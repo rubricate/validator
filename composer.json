@@ -1,5 +1,6 @@
 {
     "name": "rubricate/validator",
+    "license": "MIT",
     "authors": [
         {
             "name"  : "Estefanio N Santos",

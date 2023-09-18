@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Rubricate\Validator;
 
 class BetweenValidator implements IIsValidValidator
@@ -13,7 +15,7 @@ class BetweenValidator implements IIsValidValidator
         $this->encoding = $encoding;
     }
 
-    public function isValid($field)
+    public function isValid($field): bool
     {
         $this->v->setField($field);
         $rule = $this->v->getRule();

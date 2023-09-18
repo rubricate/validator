@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Rubricate\Validator;
 
 class MinLengthValidator extends AbstractStrValidator 
@@ -13,7 +15,7 @@ class MinLengthValidator extends AbstractStrValidator
         $this->v->setRule((int) $min);
     }
 
-    public function isValid($field)
+    public function isValid($field): bool
     {
         $this->v->setField($field);
 

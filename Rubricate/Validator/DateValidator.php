@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Rubricate\Validator;
 
 class DateValidator implements IIsValidValidator
@@ -11,7 +13,7 @@ class DateValidator implements IIsValidValidator
         $this->v = new VoValidator();
     }
 
-    public function isValid($field)
+    public function isValid($field): bool
     {
         $this->v->setField($field);
 

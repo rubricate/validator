@@ -11,7 +11,7 @@ class UrlValidator implements IIsValidValidator
         $this->v = new VoValidator();
     }
 
-    public function isValid($field): bool
+    public function isValid($field)
     {
         $this->v->setField($field);
 

@@ -12,7 +12,7 @@ class MimeTypeValidator implements IIsValidValidator
         $this->v->setRule($mimeTypeArr);
     }
 
-    public function isValid($fileType): bool
+    public function isValid($fileType)
     {
         $this->v->setField($fileType);
 

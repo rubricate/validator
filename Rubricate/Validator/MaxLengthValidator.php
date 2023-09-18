@@ -13,7 +13,7 @@ class MaxLengthValidator extends AbstractStrValidator
         $this->v->setRule((int) $max);
     }
 
-    public function isValid($field): bool
+    public function isValid($field)
     {
         $this->v->setField($field);
 

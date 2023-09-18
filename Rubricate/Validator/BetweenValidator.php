@@ -12,7 +12,7 @@ class BetweenValidator implements IIsValidValidator
         $this->v->setRule($keyMinAndMaxArr);
     }
 
-    public function isValid($field): bool
+    public function isValid($field)
     {
         $this->v->setField($field);
         $rule = $this->v->getRule();

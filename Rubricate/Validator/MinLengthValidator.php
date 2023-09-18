@@ -13,7 +13,7 @@ class MinLengthValidator extends AbstractStrValidator
         $this->v->setRule((int) $min);
     }
 
-    public function isValid($field): bool
+    public function isValid($field)
     {
         $this->v->setField($field);
 

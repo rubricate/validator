@@ -4,12 +4,13 @@ namespace Rubricate\Validator;
 
 class BetweenValidator implements IIsValidValidator
 {
-    private $v;
+    private $v, $encoding;
 
-    public function __construct($keyMinAndMaxArr)
+    public function __construct($keyMinAndMaxArr, $encoding = 'UTF-8')
     {
         $this->v = new VoValidator();
         $this->v->setRule($keyMinAndMaxArr);
+        $this->encoding = $encoding;
     }
 
     public function isValid($field)

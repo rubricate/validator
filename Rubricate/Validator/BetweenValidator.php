@@ -1,21 +1,18 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Rubricate\Validator;
 
 class BetweenValidator implements IIsValidValidator
 {
-    private $v, $encoding;
+    private $v;
 
-    public function __construct($keyMinAndMaxArr, $encoding = 'UTF-8')
+    public function __construct($keyMinAndMaxArr)
     {
         $this->v = new VoValidator();
         $this->v->setRule($keyMinAndMaxArr);
-        $this->encoding = $encoding;
     }
 
-    public function isValid($field): bool
+    public function isValid($field)
     {
         $this->v->setField($field);
         $rule = $this->v->getRule();
@@ -23,7 +20,7 @@ class BetweenValidator implements IIsValidValidator
 
         $num = self::getSize();
 
-        return ( ($num >= $rule['min']) && ($num <= $rule['max']) );
+        return ( ($num >= $rule['min'])  && ($num <= $rule['max']) );
     } 
 
     private function getSize()

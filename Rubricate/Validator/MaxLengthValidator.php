@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Rubricate\Validator;
 
 class MaxLengthValidator extends AbstractStrValidator 
@@ -15,11 +13,9 @@ class MaxLengthValidator extends AbstractStrValidator
         $this->v->setRule((int) $max);
     }
 
-    public function isValid($field): bool
+    public function isValid($field)
     {
-        $this->v->setField($field);
-
-        $g    = parent::stripAccents($this->v->getField());
+        $g    = parent::stripAccents($field);
         $size = strlen($g);
         $rule = $this->v->getRule();
 

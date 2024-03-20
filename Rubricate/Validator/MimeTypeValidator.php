@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Rubricate\Validator;
 
 class MimeTypeValidator implements IIsValidValidator
@@ -14,7 +12,7 @@ class MimeTypeValidator implements IIsValidValidator
         $this->v->setRule($mimeTypeArr);
     }
 
-    public function isValid($fileType): bool
+    public function isValid($fileType)
     {
         $this->v->setField($fileType);
 

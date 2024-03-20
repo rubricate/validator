@@ -1,35 +1,22 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Rubricate\Validator;
+
+use DateTime;
 
 class DateValidator implements IIsValidValidator
 {
-    private $v, $b = false;
+    private $format;
 
-    public function __construct()
+    public function __construct($format = 'Y-m-d')
     {
-        $this->v = new VoValidator();
+        $this->format = $format; 
     }
 
-    public function isValid($field): bool
+    public function isValid($date)
     {
-        $this->v->setField($field);
-
-        if(preg_match(''
-            . '/^[0-9]{4}-'
-            . '([1-9]|0[1-9]|1[0-2])-'
-            . '([1-9]|0[1-9]|[1-2][0-9]|3[0-1])'
-            . '$/'
-            . '', $this->v->getField()
-        )
-        ) {
-            list($y, $m, $d) = explode('-', $this->v->getField());
-            $this->b = checkdate($m, $d, $y);
-        }
-
-        return (bool) $this->b;
+        $d = DateTime::createFromFormat($this->format, $date);
+        return (($d) && ($d->format($this->format) == $date));
     } 
 }
 

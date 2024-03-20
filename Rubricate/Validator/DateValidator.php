@@ -17,7 +17,7 @@ class DateValidator implements IIsValidValidator
 
     public function isValid($date): bool
     {
-        $d = DateTime::createFromFormat($this->format, $date);
+        $d = DateTime::createFromFormat($this->format, (string) $date);
         return (($d) && ($d->format($this->format) == $date));
     } 
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Rubricate\Validator;
 
 use DateTime;
@@ -13,7 +15,7 @@ class DateValidator implements IIsValidValidator
         $this->format = $format; 
     }
 
-    public function isValid($date)
+    public function isValid($date): bool
     {
         $d = DateTime::createFromFormat($this->format, $date);
         return (($d) && ($d->format($this->format) == $date));

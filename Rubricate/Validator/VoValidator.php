@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Rubricate\Validator;
 
 class VoValidator
@@ -11,7 +13,7 @@ class VoValidator
         return $this->field;
     }
 
-    public function setField($field)
+    public function setField($field): object
     {
         $this->field = $field;
         return $this;
@@ -22,7 +24,7 @@ class VoValidator
         return $this->rule;
     }
 
-    public function setRule($rule)
+    public function setRule($rule): object
     {
         $this->rule = $rule;
         return $this;

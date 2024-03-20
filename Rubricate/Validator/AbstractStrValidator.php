@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Rubricate\Validator;
 
 abstract class AbstractStrValidator
 {
 
-    protected function stripAccents($str)
+    protected function stripAccents($str): string
     {
         $a = [
             'à','á','â','ã','ä','ç','è','é','ê','ë',

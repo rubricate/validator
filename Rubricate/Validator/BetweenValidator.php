@@ -29,10 +29,16 @@ class BetweenValidator implements IIsValidValidator
     private function getSize()
     {
         $v = $this->v->getField();
-        $i = (function_exists('mb_get_info'));
-        $s = ($i)? mb_strlen($v, $this->encoding): strlen($v);
 
-        return (is_numeric($v))? $v: $s;
+        if(is_string($v)){
+
+            $i = (function_exists('mb_get_info'));
+            $s = ($i)? mb_strlen($v, $this->encoding): strlen($v);
+
+            return $s;
+        }
+
+        return $v;
     } 
 
     private function exception($rule)
